@@ -4,6 +4,13 @@
       {{name}}
     </h2>
     {{> station-panel}}
-    {{> list-readings}}
+    <div>
+      <a href="station/{{id}}" class="ui icon button">
+          <i class="icon folder open"></i>
+      </a>
+      <a href="delete-station/{{id}}" class="ui icon button">
+          <i class="icon trash"></i>
+      </a>
+    </div>
   </section>
 {{/each}}
