@@ -5,6 +5,7 @@ const logger = require("./utils/logger");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
+const handlebarsHelpers = require("./helpers/handlebarsHelpers")
 
 const app = express();
 app.use(cookieParser());
@@ -16,7 +17,8 @@ app.engine(
   ".hbs",
   exphbs({
     extname: ".hbs",
-    defaultLayout: "main"
+    defaultLayout: "main",
+    helpers: handlebarsHelpers
   })
 );
 app.set("view engine", ".hbs");

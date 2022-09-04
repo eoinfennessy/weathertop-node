@@ -1,0 +1,28 @@
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Temperature</th>
+      <th>Wind Speed</th>
+      <th>Pressure</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each readings}}
+      <tr>
+        <td>
+          {{code}}
+        </td>
+        <td>
+          {{temperature}}
+        </td>
+        <td>
+          {{windSpeed}}
+        </td>
+        <td>
+          {{pressure}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

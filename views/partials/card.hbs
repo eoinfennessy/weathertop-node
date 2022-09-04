@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="content">
+        <i class="right floated huge ${_icon} ${_colour} icon"></i>
+        <h3 class="ui header">{{title}}</h3>
+        <div class="description">
+            <div class="ui text">{{valueA}}</div>
+            <div class="ui text"> {{valueB}}</div>
+        </div>
+        <div class="description ui two column grid">
+            <div class="column">
+                <div class="ui text">
+                    <div class="ui text"> {{valueC}}</div>
+                    <div class="ui text"> {{valueD}}</div>
+                    <div class="ui text"> {{valueE}}</div>
+                </div>
+            </div>
+            <div class="column">
+                {{!-- #{if _trend == 1}
+                    <i class="right floated big arrow up ${_colour} icon"></i>
+                #{/if}
+                #{elseif _trend == -1}
+                    <i class="right floated big arrow down ${_colour} icon"></i>
+                #{/elseif} --}}
+            </div>
+        </div>
+    </div>
+</div>
