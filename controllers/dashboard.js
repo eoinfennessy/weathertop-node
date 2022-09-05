@@ -4,35 +4,38 @@ const logger = require("../utils/logger");
 const stationStore = require("../models/station-store.js");
 const DetailedReading = require("../models/detailed-reading.js");
 const uuid = require('uuid');
-const { redirect } = require("express/lib/response");
+const accounts = require ('./accounts.js');
 
 const dashboard = {
   index(request, response) {
     logger.info("Rendering dashboard");
 
-    let stationCollection = stationStore.getAllStations();
+    const loggedInUser = accounts.getCurrentUser(request);
+    let stations = stationStore.getUserStations(loggedInUser.id)
 
-    for (let station of stationCollection) {
+    for (let station of stations) {
       if (station.readings.length) {
         station.latestReading = new DetailedReading(station.readings[0]);
       } else {
         station.latestReading = null;
       }
     }
-
     const viewData = {
        title: 'WeatherTop Dashboard',
-       stations: stationCollection
+       stations: stations
     };
     response.render("dashboard", viewData);
   },
 
   addStation(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
     const newStation = {
       id: uuid.v1(),
+      userid: loggedInUser.id,
       name: request.body.name,
       readings: []
     };
+    logger.debug('Creating station: ', newStation);
     stationStore.addStation(newStation);
     response.redirect("/dashboard");
   },

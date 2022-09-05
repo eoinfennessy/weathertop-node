@@ -1,11 +1,33 @@
 <nav class="ui menu">
-  <header class="ui header item">WeatherTop</header>
+  <header class="ui header item">
+    <a href="/">WeatherTop</a>
+  </header>
+  <span class="ui borderless item">{{heading}}</span>
   <div class="right menu">
     <a id="dashboard" class="item" href="/dashboard">Dashboard</a>
     <a id="about" class="item" href="/about">About</a>
+
+    <div class="ui pointing top right dropdown item">
+      <i class="user icon"></i>
+      <div class="menu">
+        <a id="analytics" class="item" href="/account-analytics">
+          <i class="chart pie icon"></i>
+          Analytics
+        </a>
+        <a id="account-settings" class="item" href="/account-settings">
+          <i class="settings icon"></i>
+          Settings
+        </a>
+        <a id="logout" class="item" href="/logout">
+          <i class="sign out alternate icon"></i>
+          Logout
+        </a>
+      </div>
+    </div>
   </div>
 </nav>
 
 <script>
   $("#{{id}}").addClass("active item");
+  $('.ui.dropdown').dropdown();
 </script>

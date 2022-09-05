@@ -3,6 +3,7 @@
     {
       "id": "01",
       "name": "Tramore",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
           "id": "02",
@@ -40,6 +41,7 @@
     {
       "id": "05",
       "name": "Dunmore",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "readings": [
         {
           "id": "06",
@@ -64,6 +66,36 @@
         "beaufortForce": 1,
         "windChill": 9.894,
         "cardinalWindDirection": "E"
+      }
+    },
+    {
+      "id": "d6044850-2d4d-11ed-ad29-bf47ca7c5f7d",
+      "userid": "8dcbf880-2d4d-11ed-9aa7-012d387c9419",
+      "name": "Woodstown",
+      "readings": [
+        {
+          "id": "e0f7a090-2d4d-11ed-ad29-bf47ca7c5f7d",
+          "code": "100",
+          "temperature": "3",
+          "windSpeed": "13",
+          "windDirection": "15",
+          "pressure": "812"
+        },
+        {
+          "id": "f0a880e0-2d4d-11ed-ad29-bf47ca7c5f7d",
+          "code": "800",
+          "temperature": "14",
+          "windSpeed": "11",
+          "windDirection": "9",
+          "pressure": "813"
+        }
+      ],
+      "latestReading": {
+        "tempInFahrenheit": 37.4,
+        "weatherCondition": "Clear",
+        "beaufortForce": 3,
+        "windChill": -0.36167140454638647,
+        "cardinalWindDirection": "NNE"
       }
     }
   ]
