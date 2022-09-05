@@ -2,7 +2,7 @@ function celsiusToFahrenheit(celsius) {
     return celsius * 1.8 + 32;
 }
 
-weatherCodeToCondition = {
+const weatherCodeToCondition = {
     100: "Clear",
     200: "Partial Clouds",
     300: "Cloudy",
@@ -12,6 +12,17 @@ weatherCodeToCondition = {
     700: "Snow",
     800: "Thunder"
 };
+
+const weatherCodeToIcon = {
+    100: "sun",
+    200: "cloud sun",
+    300: "cloud",
+    400: "cloud rain",
+    500: "cloud showers heavy",
+    600: "umbrella",
+    700: "snowflake",
+    800: "bolt"
+}
 
 function windSpeedToBeaufort(windSpeed) {
     if (windSpeed == 0) {
@@ -91,5 +102,6 @@ module.exports = {
     weatherCodeToCondition,
     windSpeedToBeaufort,
     calculateWindChill,
-    degreesToCardinalDirection
+    degreesToCardinalDirection,
+    weatherCodeToIcon
 };

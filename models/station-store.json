@@ -4,6 +4,8 @@
       "id": "01",
       "name": "Tramore",
       "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "latitude": 52.16235,
+      "longitude": -7.15244,
       "readings": [
         {
           "id": "02",
@@ -28,6 +30,14 @@
           "windSpeed": 1,
           "pressure": 1005,
           "windDirection": 101
+        },
+        {
+          "id": "fdfb4bf0-2d58-11ed-a365-8358cdd101fb",
+          "code": "200",
+          "temperature": "22",
+          "windSpeed": "0",
+          "windDirection": "22",
+          "pressure": "800"
         }
       ],
       "latestReading": {
@@ -35,13 +45,24 @@
         "weatherCondition": "Thunder",
         "beaufortForce": 1,
         "windChill": -0.22048980101855173,
-        "cardinalWindDirection": "E"
+        "cardinalWindDirection": "E",
+        "weatherIcon": "bolt"
+      },
+      "analytics": {
+        "maxTemp": 22,
+        "minTemp": 0.5,
+        "maxWindSpeed": 3.5,
+        "minWindSpeed": 0,
+        "maxPressure": 1005,
+        "minPressure": 800
       }
     },
     {
       "id": "05",
       "name": "Dunmore",
       "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "latitude": 52.1499994,
+      "longitude": -6.9833294,
       "readings": [
         {
           "id": "06",
@@ -65,7 +86,16 @@
         "weatherCondition": "Snow",
         "beaufortForce": 1,
         "windChill": 9.894,
-        "cardinalWindDirection": "E"
+        "cardinalWindDirection": "E",
+        "weatherIcon": "snowflake"
+      },
+      "analytics": {
+        "maxTemp": 8,
+        "minTemp": 0.5,
+        "maxWindSpeed": 3.5,
+        "minWindSpeed": 1,
+        "maxPressure": 1000,
+        "minPressure": 999
       }
     },
     {

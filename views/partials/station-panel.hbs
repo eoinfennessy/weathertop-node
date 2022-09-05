@@ -1,10 +1,27 @@
 <div class="ui five doubling inverted cards">
-    {{> card title=name}}
-    {{> card title="Weather" valueA=latestReading.weatherCondition}}
-    {{> card title="Temp" valueA=(concat readings.[0].temperature " C")
-                          valueB=(concat latestReading.tempInFahrenheit " F")}}
-    {{> card title="Wind" valueA=(concat latestReading.beaufortForce " Bft")
+    {{> card title=name icon="map marker alternate"
+                        colour="blue"
+                        valueA=(concat "Lat: " latitude)
+                        valueB=(concat "Lng: " longitude)}}
+    {{> card title="Weather" icon=latestReading.weatherIcon
+                             colour="red"
+                             valueA=latestReading.weatherCondition}}
+    {{> card title="Temp" icon="temperature low"
+                          colour="purple"
+                          valueA=(concat readings.[0].temperature " C")
+                          valueB=(concat latestReading.tempInFahrenheit " F")
+                          valueC=(concat "Max: " analytics.maxTemp " C")
+                          valueD=(concat "Min: " analytics.minTemp " C")}}
+    {{> card title="Wind" icon="wind"
+                          colour="green"
+                          valueA=(concat latestReading.beaufortForce " Bft")
                           valueB=(concat "Wind direction: " latestReading.cardinalWindDirection)
-                          valueC=(concat "Feels like: " latestReading.windChill " C")}}
-    {{> card title="Pressure" valueA=(concat readings.[0].pressure " hPa")}}
+                          valueC=(concat "Feels like: " latestReading.windChill " C")
+                          valueD=(concat "Max: " analytics.maxWindSpeed)
+                          valueE=(concat "Min: " analytics.minWindSpeed)}}
+    {{> card title="Pressure" icon="compress arrows alternate"
+                              colour="orange"
+                              valueA=(concat readings.[0].pressure " hPa")
+                              valueB=(concat "Max: " analytics.maxPressure " hPa")
+                              valueC=(concat "Min: " analytics.minPressure " hPa")}}
 </div>

@@ -9,6 +9,7 @@ class DetailedReading {
         this.beaufortForce = conversions.windSpeedToBeaufort(reading.windSpeed);
         this.windChill = conversions.calculateWindChill(reading.temperature, reading.windSpeed);
         this.cardinalWindDirection = conversions.degreesToCardinalDirection(reading.windDirection);
+        this.weatherIcon = conversions.weatherCodeToIcon[reading.code];
     }
 }
 
