@@ -28,14 +28,7 @@
           "pressure": 1005,
           "windDirection": 101
         }
-      ],
-      "latestReading": {
-        "tempInFahrenheit": 32.9,
-        "weatherCondition": "Thunder",
-        "beaufortForce": 1,
-        "windChill": -0.22048980101855173,
-        "cardinalWindDirection": "E"
-      }
+      ]
     },
     {
       "id": "05",
@@ -57,14 +50,7 @@
           "pressure": 1000,
           "windDirection": 102
         }
-      ],
-      "latestReading": {
-        "tempInFahrenheit": 46.4,
-        "weatherCondition": "Snow",
-        "beaufortForce": 1,
-        "windChill": 9.894,
-        "cardinalWindDirection": "E"
-      }
+      ]
     }
   ]
 }

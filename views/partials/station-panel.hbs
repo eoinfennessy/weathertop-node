@@ -3,6 +3,8 @@
     {{> card title="Weather" valueA=latestReading.weatherCondition}}
     {{> card title="Temp" valueA=(concat readings.[0].temperature " C")
                           valueB=(concat latestReading.tempInFahrenheit " F")}}
-    {{> card title="Wind" valueA=(concat latestReading.beaufortForce " Bft")}}
+    {{> card title="Wind" valueA=(concat latestReading.beaufortForce " Bft")
+                          valueB=(concat "Wind direction: " latestReading.cardinalWindDirection)
+                          valueC=(concat "Feels like: " latestReading.windChill " C")}}
     {{> card title="Pressure" valueA=(concat readings.[0].pressure " hPa")}}
 </div>

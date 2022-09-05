@@ -44,8 +44,52 @@ function windSpeedToBeaufort(windSpeed) {
     return -1;
 }
 
+function calculateWindChill(temp, speed) {
+    return 13.12 + 0.6215 * temp - 11.37 * Math.pow(speed, 0.16) + 0.3965 * temp * Math.pow(speed, 0.16);
+}
+
+function degreesToCardinalDirection(degrees) {
+    if (degrees < 0 || degrees > 360) {
+        return "Invalid entry: " + degrees;
+    } else if (degrees >= 348.75 || degrees < 11.25) {
+        return "N";
+    } else if (degrees < 33.75) {
+        return "NNE";
+    } else if (degrees < 56.25) {
+        return "NE";
+    } else if (degrees < 78.75) {
+        return "ENE";
+    } else if (degrees < 101.25) {
+        return "E";
+    } else if (degrees < 123.75) {
+        return "ESE";
+    } else if (degrees < 146.25) {
+        return "SE";
+    } else if (degrees < 168.75) {
+        return "SSE";
+    } else if (degrees < 191.25) {
+        return "S";
+    } else if (degrees < 213.75) {
+        return "SSW";
+    } else if (degrees < 236.25) {
+        return "SW";
+    } else if (degrees < 258.75) {
+        return "WSW";
+    } else if (degrees < 281.25) {
+        return "W";
+    } else if (degrees < 303.75) {
+        return "WNW";
+    } else if (degrees < 326.25) {
+        return "NW";
+    } else {
+        return "NNW";
+    }
+}
+
 module.exports = {
     celsiusToFahrenheit,
     weatherCodeToCondition,
-    windSpeedToBeaufort
+    windSpeedToBeaufort,
+    calculateWindChill,
+    degreesToCardinalDirection
 };
