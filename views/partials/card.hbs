@@ -14,14 +14,9 @@
                     <div class="ui text"> {{valueE}}</div>
                 </div>
             </div>
-            {{!-- <div class="column">
-                #{if _trend == 1}
-                    <i class="right floated big arrow up ${_colour} icon"></i>
-                #{/if}
-                #{elseif _trend == -1}
-                    <i class="right floated big arrow down ${_colour} icon"></i>
-                #{/elseif}
-            </div> --}}
+            <div class="column">
+                <i class="right floated big {{trendArrow}} {{colour}} icon"></i>
+            </div>
         </div>
     </div>
 </div>

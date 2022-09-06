@@ -8,12 +8,14 @@
                              valueA=latestReading.weatherCondition}}
     {{> card title="Temp" icon="temperature low"
                           colour="purple"
-                          valueA=(concat readings.[0].temperature " C")
+                          trendArrow=analytics.tempTrend
+                          valueA=(concat latestReading.reading.temperature " C")
                           valueB=(concat latestReading.tempInFahrenheit " F")
                           valueC=(concat "Max: " analytics.maxTemp " C")
                           valueD=(concat "Min: " analytics.minTemp " C")}}
     {{> card title="Wind" icon="wind"
                           colour="green"
+                          trendArrow=analytics.windSpeedTrend
                           valueA=(concat latestReading.beaufortForce " Bft")
                           valueB=(concat "Wind direction: " latestReading.cardinalWindDirection)
                           valueC=(concat "Feels like: " latestReading.windChill " C")
@@ -21,7 +23,8 @@
                           valueE=(concat "Min: " analytics.minWindSpeed)}}
     {{> card title="Pressure" icon="compress arrows alternate"
                               colour="orange"
-                              valueA=(concat readings.[0].pressure " hPa")
+                              trendArrow=analytics.pressureTrend
+                              valueA=(concat latestReading.reading.pressure " hPa")
                               valueB=(concat "Max: " analytics.maxPressure " hPa")
                               valueC=(concat "Min: " analytics.minPressure " hPa")}}
 </div>
