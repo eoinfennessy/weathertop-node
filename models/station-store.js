@@ -30,6 +30,14 @@ const stationStore = {
     this.store.save();
   },
 
+  removeUserStations(userid) {
+    const stations = this.getAllStations();
+    _.remove(stations, function(station) {
+      return station.userid === userid;
+    });
+    this.store.save();
+  },
+
   removeAllStations() {
     this.store.removeAll(this.collection);
     this.store.save();
@@ -44,7 +52,7 @@ const stationStore = {
   removeReading(stationId, readingId) {
     const station = this.getStation(stationId);
     const readings = station.readings;
-    _.remove(readings, { id: readingId});
+    _.remove(readings, {id: readingId});
     this.store.save();
   },
 };

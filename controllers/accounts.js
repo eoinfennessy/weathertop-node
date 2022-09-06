@@ -1,6 +1,7 @@
 'use strict';
 
-const userstore = require('../models/user-store');
+const userStore = require('../models/user-store');
+const stationStore = require('../models/station-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
 
@@ -32,16 +33,67 @@ const accounts = {
     response.render('signup', viewData);
   },
 
+  settings(request, response) {
+    const user = accounts.getCurrentUser(request);
+    if (user) {
+      const viewData = {
+        user: user
+      };
+      response.render('account-settings', viewData);
+    } else {
+      response.redirect('/login');
+    }
+  },
+
+  updateName(request, response) {
+    const user = accounts.getCurrentUser(request);
+    if (user) {
+      userStore.updateName(user, request.body.firstName, request.body.lastName);
+      response.redirect('/account-settings');
+    } else {
+      response.redirect('/login');
+    }
+  },
+
+  updateEmail(request, response) {
+    const user = accounts.getCurrentUser(request);
+    if (user) {
+      userStore.updateEmail(user, request.body.email);
+      response.cookie('weathertop', user.email);
+      response.redirect('/account-settings');
+    } else {
+      response.redirect('/login');
+    }
+  },
+
+  updatePassword(request, response) {
+    const user = accounts.getCurrentUser(request);
+    if (!user) {
+      response.redirect('/login');
+    } else if (request.body.oldPassword === user.password) {
+      if (request.body.password === request.body.confirmPassword) {
+        userStore.updatePassword(user, request.body.password);
+        response.redirect('/account-settings');
+      } else {
+        logger.info("Password update failed: New password and confirm password do not match");
+        response.redirect('/account-settings');
+      }
+    } else {
+      logger.info("Password update failed: Old password incorrect");
+      response.redirect('/account-settings');
+    }
+  },
+
   register(request, response) {
     const user = request.body;
     user.id = uuid.v1();
-    userstore.addUser(user);
+    userStore.addUser(user);
     logger.info(`registering ${user.email}`);
     response.redirect('/');
   },
 
   authenticate(request, response) {
-    const user = userstore.getUserByEmail(request.body.email);
+    const user = userStore.getUserByEmail(request.body.email);
     if (user) {
       response.cookie('weathertop', user.email);
       if (user.password == request.body.password) {
@@ -57,7 +109,22 @@ const accounts = {
 
   getCurrentUser(request) {
     const userEmail = request.cookies.weathertop;
-    return userstore.getUserByEmail(userEmail);
+    return userStore.getUserByEmail(userEmail);
+  },
+
+  deleteAccount(request, response) {
+    const user = accounts.getCurrentUser(request);
+    if (user) {
+      if (user.password === request.body.password) {
+        stationStore.removeUserStations(user.id);
+        userStore.removeUser(user.id);
+        response.redirect('/logout');
+      } else {
+        response.redirect('/account-settings');
+      }
+    } else {
+      response.redirect('/login');
+    }
   },
 };
 

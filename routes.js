@@ -12,6 +12,10 @@ router.get("/", accounts.index);
 router.get('/login', accounts.login);
 router.get('/signup', accounts.signup);
 router.get('/logout', accounts.logout);
+router.get('/account-settings', accounts.settings);
+router.post('/account-settings/update-name', accounts.updateName);
+router.post('/account-settings/update-email', accounts.updateEmail);
+router.post('/account-settings/delete-account', accounts.deleteAccount);
 router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
 

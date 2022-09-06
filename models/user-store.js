@@ -12,11 +12,6 @@ const userStore = {
     return this.store.findAll(this.collection);
   },
 
-  addUser(user) {
-    this.store.add(this.collection, user);
-    this.store.save();
-  },
-
   getUserById(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },
@@ -24,6 +19,33 @@ const userStore = {
   getUserByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
+
+  addUser(user) {
+    this.store.add(this.collection, user);
+    this.store.save();
+  },
+
+  updateName(user, firstName, lastName) {
+    user.firstName = firstName;
+    user.lastName = lastName;
+    this.store.save();
+  },
+
+  updateEmail(user, email) {
+    user.email = email;
+    this.store.save();
+  },
+
+  updatePassword(user, email) {
+    user.password = password;
+    this.store.save();
+  },
+
+  removeUser(id) {
+    const user = this.getUserById(id);
+    this.store.remove(this.collection, user);
+    this.store.save();
+  }
 };
 
 module.exports = userStore;
