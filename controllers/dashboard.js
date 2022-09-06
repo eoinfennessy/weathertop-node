@@ -13,6 +13,7 @@ const dashboard = {
 
     const loggedInUser = accounts.getCurrentUser(request);
     let stations = stationStore.getUserStations(loggedInUser.id)
+    stations.sort((a, b) => a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1);
 
     for (let station of stations) {
       if (station.readings.length) {
