@@ -2,15 +2,24 @@
 
 const logger = require('../utils/logger');
 const stationStore = require('../models/station-store.js');
-const req = require('express/lib/request');
+const DetailedReading = require("../models/detailed-reading.js");
+const StationAnalytics = require("../models/station-analytics.js");
 const uuid = require('uuid');
 
 const station = {
   index(request, response) {
     const stationId = request.params.id;
     logger.debug(`Station ID: ${stationId}`);
+    const station = stationStore.getStation(stationId);
+    if (station.readings.length) {
+      station.readings.forEach(reading => {reading.date = new Date(reading.date)});
+      station.latestReading = new DetailedReading(station.readings[station.readings.length - 1]);
+      station.analytics = new StationAnalytics(station);
+    } else {
+      station.latestReading = null;
+    }
     const viewData = {
-      station: stationStore.getStation(stationId)
+      station: station
     };
     response.render('station', viewData);
   },
@@ -23,7 +32,8 @@ const station = {
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
       windDirection: Number(request.body.windDirection),
-      pressure: Number(request.body.pressure)
+      pressure: Number(request.body.pressure),
+      date: new Date()
     };
     stationStore.addReading(stationId, newReading);
     response.redirect('/station/' + stationId);

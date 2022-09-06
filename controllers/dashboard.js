@@ -16,6 +16,7 @@ const dashboard = {
 
     for (let station of stations) {
       if (station.readings.length) {
+        station.readings.forEach(reading => {reading.date = new Date(reading.date)});
         station.latestReading = new DetailedReading(station.readings[station.readings.length - 1]);
         station.analytics = new StationAnalytics(station);
       } else {

@@ -13,7 +13,8 @@
           "temperature": 0.5,
           "windSpeed": 3.5,
           "pressure": 1002,
-          "windDirection": 90
+          "windDirection": 90,
+          "date": "2021-04-25T07:20:42.138Z"
         },
         {
           "id": "03",
@@ -21,7 +22,8 @@
           "temperature": 6,
           "windSpeed": 2,
           "pressure": 1004,
-          "windDirection": 96
+          "windDirection": 96,
+          "date": "2021-04-25T07:20:42.138Z"
         },
         {
           "id": "04",
@@ -29,59 +31,37 @@
           "temperature": 8,
           "windSpeed": 1,
           "pressure": 1005,
-          "windDirection": 101
-        },
-        {
-          "id": "c7628010-2de7-11ed-9034-e5106c9adb07",
-          "code": 600,
-          "temperature": 5,
-          "windSpeed": 3,
-          "windDirection": 14,
-          "pressure": 1004
-        },
-        {
-          "id": "dba5b9c0-2de7-11ed-9034-e5106c9adb07",
-          "code": 100,
-          "temperature": 3,
-          "windSpeed": 5,
-          "windDirection": 360,
-          "pressure": 1003
-        },
-        {
-          "id": "7b162740-2dea-11ed-850a-e1ce8f774f74",
-          "code": 700,
-          "temperature": 1,
-          "windSpeed": 4,
-          "windDirection": 360,
-          "pressure": 842
+          "windDirection": 101,
+          "date": "2021-04-25T07:20:42.138Z"
         }
       ],
       "latestReading": {
         "reading": {
-          "id": "dba5b9c0-2de7-11ed-9034-e5106c9adb07",
-          "code": 100,
-          "temperature": 3,
-          "windSpeed": 5,
-          "windDirection": 360,
-          "pressure": 1003
+          "id": "04",
+          "code": 700,
+          "temperature": 8,
+          "windSpeed": 1,
+          "pressure": 1005,
+          "windDirection": 101,
+          "date": "2021-04-25T07:20:42.138Z"
         },
-        "tempInFahrenheit": 37.4,
-        "weatherCondition": "Clear",
+        "tempInFahrenheit": 46.4,
+        "weatherCondition": "Snow",
         "beaufortForce": 1,
-        "windChill": 1.8139379442433552,
-        "cardinalWindDirection": "N",
-        "weatherIcon": "sun"
+        "windChill": 9.894,
+        "cardinalWindDirection": "E",
+        "weatherIcon": "snowflake"
       },
       "analytics": {
         "maxTemp": 8,
         "minTemp": 0.5,
-        "maxWindSpeed": 5,
+        "maxWindSpeed": 3.5,
         "minWindSpeed": 1,
         "maxPressure": 1005,
         "minPressure": 1002,
-        "tempTrend": "down arrow",
-        "windSpeedTrend": "up arrow",
-        "pressureTrend": "down arrow"
+        "tempTrend": "up arrow",
+        "windSpeedTrend": "down arrow",
+        "pressureTrend": "up arrow"
       }
     },
     {
@@ -97,7 +77,8 @@
           "temperature": 8,
           "windSpeed": 1,
           "pressure": 999,
-          "windDirection": 98
+          "windDirection": 98,
+          "date": "2021-04-25T07:20:42.138Z"
         },
         {
           "id": "07",
@@ -105,7 +86,8 @@
           "temperature": 0.5,
           "windSpeed": 3.5,
           "pressure": 1000,
-          "windDirection": 102
+          "windDirection": 102,
+          "date": "2021-04-25T07:20:42.138Z"
         }
       ],
       "latestReading": {
@@ -115,7 +97,8 @@
           "temperature": 0.5,
           "windSpeed": 3.5,
           "pressure": 1000,
-          "windDirection": 102
+          "windDirection": 102,
+          "date": "2021-04-25T07:20:42.138Z"
         },
         "tempInFahrenheit": 32.9,
         "weatherCondition": "Partial Clouds",
@@ -134,36 +117,6 @@
         "tempTrend": "",
         "windSpeedTrend": "",
         "pressureTrend": ""
-      }
-    },
-    {
-      "id": "d6044850-2d4d-11ed-ad29-bf47ca7c5f7d",
-      "userid": "8dcbf880-2d4d-11ed-9aa7-012d387c9419",
-      "name": "Woodstown",
-      "readings": [
-        {
-          "id": "e0f7a090-2d4d-11ed-ad29-bf47ca7c5f7d",
-          "code": "100",
-          "temperature": "3",
-          "windSpeed": "13",
-          "windDirection": "15",
-          "pressure": "812"
-        },
-        {
-          "id": "f0a880e0-2d4d-11ed-ad29-bf47ca7c5f7d",
-          "code": "800",
-          "temperature": "14",
-          "windSpeed": "11",
-          "windDirection": "9",
-          "pressure": "813"
-        }
-      ],
-      "latestReading": {
-        "tempInFahrenheit": 37.4,
-        "weatherCondition": "Clear",
-        "beaufortForce": 3,
-        "windChill": -0.36167140454638647,
-        "cardinalWindDirection": "NNE"
       }
     }
   ]

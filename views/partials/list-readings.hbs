@@ -1,6 +1,7 @@
 <table class="ui table">
   <thead>
     <tr>
+      <th>Date/Time</th>
       <th>Code</th>
       <th>Temperature</th>
       <th>Wind Speed</th>
@@ -12,6 +13,9 @@
   <tbody>
     {{#each readings}}
       <tr>
+        <td>
+          {{date}}
+        </td>
         <td>
           {{code}}
         </td>
