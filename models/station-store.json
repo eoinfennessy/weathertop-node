@@ -92,23 +92,29 @@
       ],
       "latestReading": {
         "reading": {
-          "date": null
+          "id": "5c528fd0-2f05-11ed-a163-691ee41bb928",
+          "code": 803,
+          "temperature": 15.62,
+          "windSpeed": 6.41,
+          "windDirection": 106,
+          "pressure": 997,
+          "date": "2022-09-07T23:32:38.000Z"
         },
-        "tempInFahrenheit": null,
+        "tempInFahrenheit": 60.116,
         "beaufortForce": -1,
-        "windChill": null,
-        "cardinalWindDirection": "NNW"
+        "windChill": 15.859194237112694,
+        "cardinalWindDirection": "ESE"
       },
       "analytics": {
-        "maxTemp": null,
-        "minTemp": null,
-        "maxWindSpeed": null,
-        "minWindSpeed": null,
-        "maxPressure": null,
-        "minPressure": null,
-        "tempTrend": "up arrow",
+        "maxTemp": 15.62,
+        "minTemp": 0.5,
+        "maxWindSpeed": 6.41,
+        "minWindSpeed": 1,
+        "maxPressure": 1000,
+        "minPressure": 997,
+        "tempTrend": "",
         "windSpeedTrend": "up arrow",
-        "pressureTrend": "up arrow"
+        "pressureTrend": ""
       }
     }
   ]

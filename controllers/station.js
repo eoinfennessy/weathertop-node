@@ -19,11 +19,11 @@ const station = {
     } else {
       station.latestReading = null;
     }
-    const viewData = {
-      station: station
-    };
     const dailyReadings = await openWeatherMapUtils.getDailyReadingsGraphData(station.latitude, station.longitude, process.env.OPEN_WEATHER_API_KEY);
-    console.log(dailyReadings);
+    const viewData = {
+      station: station,
+      dailyReadings: dailyReadings
+    };
     response.render('station', viewData);
   },
 
@@ -48,7 +48,6 @@ const station = {
     const newReading = await openWeatherMapUtils.generateReading(station.latitude,
                                                                  station.longitude,
                                                                  process.env.OPEN_WEATHER_API_KEY);
-    console.log(newReading);
     stationStore.addReading(stationId, newReading);
     response.redirect('/station/' + stationId);
   },
