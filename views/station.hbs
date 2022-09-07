@@ -1,10 +1,13 @@
 {{> menu}}
 
-<section class="ui center aligned middle aligned segment">
+<section class="ui segment">
   <h2 class="ui header">
     {{station.name}}
   </h2>
   {{> station-panel station}}
   {{> list-readings station}}
   {{> add-reading}}
+  <form action="/station/{{station.id}}/generate-reading" method="post">
+    <button class="ui submit red button">Generate Reading</button>
+  </form>
 </section>

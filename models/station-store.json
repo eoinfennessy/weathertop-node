@@ -92,31 +92,23 @@
       ],
       "latestReading": {
         "reading": {
-          "id": "07",
-          "code": 200,
-          "temperature": 0.5,
-          "windSpeed": 3.5,
-          "pressure": 1000,
-          "windDirection": 102,
-          "date": "2021-04-25T07:20:42.138Z"
+          "date": null
         },
-        "tempInFahrenheit": 32.9,
-        "weatherCondition": "Partial Clouds",
-        "beaufortForce": 1,
-        "windChill": -0.22048980101855173,
-        "cardinalWindDirection": "ESE",
-        "weatherIcon": "cloud sun"
+        "tempInFahrenheit": null,
+        "beaufortForce": -1,
+        "windChill": null,
+        "cardinalWindDirection": "NNW"
       },
       "analytics": {
-        "maxTemp": 8,
-        "minTemp": 0.5,
-        "maxWindSpeed": 3.5,
-        "minWindSpeed": 1,
-        "maxPressure": 1000,
-        "minPressure": 999,
-        "tempTrend": "",
-        "windSpeedTrend": "",
-        "pressureTrend": ""
+        "maxTemp": null,
+        "minTemp": null,
+        "maxWindSpeed": null,
+        "minWindSpeed": null,
+        "maxPressure": null,
+        "minPressure": null,
+        "tempTrend": "up arrow",
+        "windSpeedTrend": "up arrow",
+        "pressureTrend": "up arrow"
       }
     }
   ]

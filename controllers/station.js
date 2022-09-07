@@ -4,10 +4,11 @@ const logger = require('../utils/logger');
 const stationStore = require('../models/station-store.js');
 const DetailedReading = require("../models/detailed-reading.js");
 const StationAnalytics = require("../models/station-analytics.js");
+const openWeatherMapUtils = require("../utils/open-weather-map-utils.js");
 const uuid = require('uuid');
 
 const station = {
-  index(request, response) {
+  async index(request, response) {
     const stationId = request.params.id;
     logger.debug(`Station ID: ${stationId}`);
     const station = stationStore.getStation(stationId);
@@ -21,6 +22,8 @@ const station = {
     const viewData = {
       station: station
     };
+    const dailyReadings = await openWeatherMapUtils.getDailyReadingsGraphData(station.latitude, station.longitude, process.env.OPEN_WEATHER_API_KEY);
+    console.log(dailyReadings);
     response.render('station', viewData);
   },
 
@@ -35,6 +38,17 @@ const station = {
       pressure: Number(request.body.pressure),
       date: new Date()
     };
+    stationStore.addReading(stationId, newReading);
+    response.redirect('/station/' + stationId);
+  },
+
+  async generateReading(request, response) {
+    const stationId = request.params.id;
+    const station = stationStore.getStation(stationId);
+    const newReading = await openWeatherMapUtils.generateReading(station.latitude,
+                                                                 station.longitude,
+                                                                 process.env.OPEN_WEATHER_API_KEY);
+    console.log(newReading);
     stationStore.addReading(stationId, newReading);
     response.redirect('/station/' + stationId);
   },
