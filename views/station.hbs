@@ -7,37 +7,9 @@
   {{> station-panel station}}
   {{> list-readings station}}
   {{> add-reading}}
-  <form action="/station/{{station.id}}/generate-reading" method="post">
-    <button class="ui submit red button">Generate Reading</button>
-  </form>
+  {{> generate-reading}}
 
-
-
-  <div class="ui segment" id="chart"></div>
-  <script>
-    const data = {
-      labels: [
-        {{#each dailyReadings.labels}}
-          "{{this}}",
-        {{/each}}
-      ],
-      datasets: [
-        {
-          name: "Temperature", type: "line",
-          values: [
-            {{#each dailyReadings.temperature}}
-              {{this}},
-            {{/each}}
-          ]
-        }
-      ]
-    }
-
-    const chart = new frappe.Chart("#chart", {
-      title: "Temperature Trend",
-      data: data,
-      type: 'line',
-      height: 250,
-    })
-  </script>
+  {{> chart id="temp-chart" name="Temperature" values=dailyReadings.temperature labels=dailyReadings.labels}}
+  {{> chart id="wind-speed-chart" name="Wind Speed" values=dailyReadings.windSpeed labels=dailyReadings.labels}}
+  {{> chart id="pressure-chart" name="Pressure" values=dailyReadings.pressure labels=dailyReadings.labels}}
 </section>

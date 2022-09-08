@@ -1,0 +1,31 @@
+<div class="ui segment" id="{{id}}"></div>
+<script>
+{
+    const data = {
+        labels: [
+            {{#each labels}}
+                "{{this}}",
+            {{/each}}
+        ],
+        datasets: [
+            {
+                name: "{{name}}", type: "line",
+                values: [
+                {{#each values}}
+                    {{this}},
+                {{/each}}
+                ]
+            }
+        ]
+    }
+
+    const chart = new frappe.Chart("#{{id}}", {
+        title: "{{name}} Trend",
+        data: data,
+        type: 'line',
+        height: 250,
+        lineOptions: {dotSize: 6, regionFill: 1},
+        colors: ['#2185d0']
+    })
+}
+</script>
