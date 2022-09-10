@@ -1,46 +1,27 @@
 # WeatherTop
 
-An MVC-based Java/[Play](https://www.playframework.com/) web app for managing WeatherTop Inc. weather stations. 
-Users can register, log in, add/delete stations and readings, update account settings, as well as view readings and
-account/station analytics. Styled using [Fomantic-UI](https://fomantic-ui.com/) and deployed on 
-[Heroku](https://www.heroku.com/) using an [ElephantSQL]() database.
+An MVC-based Node/[Express](https://expressjs.com/) web app for managing WeatherTop Inc. weather stations. Users can register, log in, add/delete stations and readings, update account settings, as well as view readings and station analytics. Users can also auto-generate readings using the [OpenWeatherMap](https://openweathermap.org/) API, view [Frappe charts](https://frappe.io/charts) displaying weekly forecasts, and a [Leaflet map](https://leafletjs.com/) displaying markers for each station. Styled using [Fomantic-UI](https://fomantic-ui.com/) and deployed on [Glitch](https://www.glitch.com/).
 
 This web app was created as part of an assignment for SETU's Computer Science HDip course. You can [visit the 
-deployed app here](https://weathertop-weather-stations.herokuapp.com/).
+deployed app here](https://the-return-of-weathertop.glitch.me).
 
 ## Getting Started
 ### Prerequisites
-- [Java 11](https://www.oracle.com/java/technologies/downloads/#java11)
-- [Play 1.6.0](https://www.playframework.com/releases)
+- [Node](https://nodejs.org/en/) (Version v16.14.0 used for dev/testing)
 
 ### Installing
 To get a copy of the project running on your system, navigate to the project directory in a command prompt/shell and 
 run the following:
 ```
-play run
+npm install
 ```
-This will load the application and start a local server on port 9000.
+This will install all dependencies in package-lock.json
 
-## Deployment
-### Prerequisites
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-- [An ElephantSQL Account](https://customer.elephantsql.com/signup)
-- [A Heroku Account](https://signup.heroku.com/)
-
-### Setting up and ElephantSQL Database
-1. After [creating a new ElephantSQL database instance](https://www.elephantsql.com/docs/index.html), copy the URL to the
-database to the clipboard.
-2. Open **app/conf/application.conf** and find the **db=** setting. Set this to the URL you copied in the previous step.
-
-### Deploying on Heroku
-To deploy this app on Heroku, log in to Heroku in a command prompt/shell, then navigate to your project's directory and
- run the following to create a new Play application on Heroku:
+After dependency installation has completed run
 ```
-heroku create --stack heroku-18 --buildpack https://github.com/heroku/heroku-buildpack-play
+npm start
 ```
-You can then [follow the steps outlined here](https://devcenter.heroku.com/articles/git#create-a-heroku-remote) to 
-deploy the project using Git and the Heroku CLI.
+This will load the application and start a local server on port 4000.
 
 ## Author
 - **Eoin Fennessy** - [GitHub](https://github.com/eoinfennessy)
