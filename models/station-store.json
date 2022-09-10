@@ -48,7 +48,7 @@
         "tempInFahrenheit": 46.4,
         "weatherCondition": "Snow",
         "beaufortForce": 1,
-        "windChill": 9.894,
+        "windChill": 9.89,
         "cardinalWindDirection": "E",
         "weatherIcon": "snowflake"
       },
@@ -92,30 +92,42 @@
       ],
       "latestReading": {
         "reading": {
-          "id": "18371b30-2fc9-11ed-a35e-8d5da1f80d8f",
-          "code": 802,
-          "temperature": 14.08,
-          "windSpeed": 4.26,
-          "windDirection": 319,
-          "pressure": 1006,
-          "date": "2022-09-08T22:53:46.000Z"
+          "id": "07",
+          "code": 200,
+          "temperature": 0.5,
+          "windSpeed": 3.5,
+          "pressure": 1000,
+          "windDirection": 102,
+          "date": "2021-04-25T07:20:42.138Z"
         },
-        "tempInFahrenheit": 57.344,
+        "tempInFahrenheit": 32.9,
+        "weatherCondition": "Partial Clouds",
         "beaufortForce": 1,
-        "windChill": 14.573120405742287,
-        "cardinalWindDirection": "NW"
+        "windChill": -0.22,
+        "cardinalWindDirection": "ESE",
+        "weatherIcon": "cloud sun"
       },
       "analytics": {
-        "maxTemp": 14.08,
+        "maxTemp": 8,
         "minTemp": 0.5,
-        "maxWindSpeed": 4.26,
+        "maxWindSpeed": 3.5,
         "minWindSpeed": 1,
-        "maxPressure": 1006,
+        "maxPressure": 1000,
         "minPressure": 999,
         "tempTrend": "",
-        "windSpeedTrend": "up arrow",
-        "pressureTrend": "up arrow"
+        "windSpeedTrend": "",
+        "pressureTrend": ""
       }
+    },
+    {
+      "id": "63b48460-30fc-11ed-83d2-e9ec9df63435",
+      "userid": "5fda5770-30fc-11ed-83d2-e9ec9df63435",
+      "name": "Test",
+      "latitude": 0.001,
+      "longitude": 0.001,
+      "readings": [],
+      "latestReading": null,
+      "analytics": null
     }
   ]
 }

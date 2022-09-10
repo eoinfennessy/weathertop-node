@@ -1,4 +1,8 @@
-{{> menu id="about"}}
+{{#if isUserLoggedIn}}
+  {{> menu id="about"}}
+{{else}}
+  {{> welcome-menu id="about"}}
+{{/if}}
 
 <section id="about-main">
   <div class="ui center aligned middle aligned inverted segment">

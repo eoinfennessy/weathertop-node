@@ -2,30 +2,20 @@
 
 const logger = require("../utils/logger");
 const stationStore = require("../models/station-store.js");
-const DetailedReading = require("../models/detailed-reading.js");
-const StationAnalytics = require("../models/station-analytics.js");
 const uuid = require('uuid');
 const accounts = require ('./accounts.js');
 
 const dashboard = {
   index(request, response) {
     logger.info("Rendering dashboard");
-
     const loggedInUser = accounts.getCurrentUser(request);
-    let stations = stationStore.getUserStations(loggedInUser.id)
-    stations.sort((a, b) => a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1);
-
+    let stations = stationStore.getUserStations(loggedInUser.id, "name")
     for (let station of stations) {
-      if (station.readings.length) {
-        station.readings.forEach(reading => {reading.date = new Date(reading.date)});
-        station.latestReading = new DetailedReading(station.readings[station.readings.length - 1]);
-        station.analytics = new StationAnalytics(station);
-      } else {
-        station.latestReading = null;
-      }
+      stationStore.updateLatestReading(station);
+      stationStore.updateStationAnalytics(station);
     }
     const viewData = {
-       title: 'WeatherTop Dashboard',
+       title: `${loggedInUser.firstName}'s Dashboard`,
        stations: stations
     };
     response.render("dashboard", viewData);
@@ -39,7 +29,9 @@ const dashboard = {
       name: request.body.name,
       latitude: Number(request.body.latitude),
       longitude: Number(request.body.longitude),
-      readings: []
+      readings: [],
+      latestReading: null,
+      analytics: null
     };
     logger.debug('Creating station: ', newStation);
     stationStore.addStation(newStation);

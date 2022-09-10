@@ -2,24 +2,18 @@
 
 const logger = require('../utils/logger');
 const stationStore = require('../models/station-store.js');
-const DetailedReading = require("../models/detailed-reading.js");
-const StationAnalytics = require("../models/station-analytics.js");
 const openWeatherMapUtils = require("../utils/open-weather-map-utils.js");
 const uuid = require('uuid');
 
 const station = {
   async index(request, response) {
-    const stationId = request.params.id;
-    logger.debug(`Station ID: ${stationId}`);
-    const station = stationStore.getStation(stationId);
-    if (station.readings.length) {
-      station.readings.forEach(reading => {reading.date = new Date(reading.date)});
-      station.latestReading = new DetailedReading(station.readings[station.readings.length - 1]);
-      station.analytics = new StationAnalytics(station);
-    } else {
-      station.latestReading = null;
-    }
-    const dailyReadings = await openWeatherMapUtils.getDailyReadingsGraphData(station.latitude, station.longitude, process.env.OPEN_WEATHER_API_KEY);
+    const station = stationStore.getStation(request.params.id);
+    stationStore.updateLatestReading(station);
+    stationStore.updateStationAnalytics(station);
+    station.readings.forEach(reading => {reading.date = new Date(reading.date)});
+    const dailyReadings = await openWeatherMapUtils.getDailyReadingsGraphData(station.latitude,
+                                                                              station.longitude,
+                                                                              process.env.OPEN_WEATHER_API_KEY);
     const viewData = {
       station: station,
       dailyReadings: dailyReadings

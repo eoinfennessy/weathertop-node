@@ -1,4 +1,8 @@
-{{> welcome-menu}}
+{{#if isUserLoggedIn}}
+  {{> menu}}
+{{else}}
+  {{> welcome-menu}}
+{{/if}}
 
 <div class="ui center aligned inverted segment" id="masthead">
   <h1 class="ui header">

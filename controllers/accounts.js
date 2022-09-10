@@ -6,10 +6,11 @@ const logger = require('../utils/logger');
 const uuid = require('uuid');
 
 const accounts = {
-
   index(request, response) {
+    let isUserLoggedIn = Boolean(request.cookies.weathertop);
     const viewData = {
-      title: 'Login or Signup',
+      title: 'Welcome to WeatherTop',
+      isUserLoggedIn: isUserLoggedIn
     };
     response.render('index', viewData);
   },
@@ -89,7 +90,8 @@ const accounts = {
     user.id = uuid.v1();
     userStore.addUser(user);
     logger.info(`registering ${user.email}`);
-    response.redirect('/');
+    response.cookie('weathertop', user.email);
+    response.redirect('/dashboard');
   },
 
   authenticate(request, response) {

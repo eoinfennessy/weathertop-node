@@ -1,5 +1,6 @@
 function celsiusToFahrenheit(celsius) {
-    return celsius * 1.8 + 32;
+    let fahrenheit = celsius * 1.8 + 32;
+    return Number(fahrenheit.toFixed(2));
 }
 
 const weatherCodeToCondition = {
@@ -56,7 +57,8 @@ function windSpeedToBeaufort(windSpeed) {
 }
 
 function calculateWindChill(temp, speed) {
-    return 13.12 + 0.6215 * temp - 11.37 * Math.pow(speed, 0.16) + 0.3965 * temp * Math.pow(speed, 0.16);
+    let windChill = 13.12 + 0.6215 * temp - 11.37 * Math.pow(speed, 0.16) + 0.3965 * temp * Math.pow(speed, 0.16);
+    return Number(windChill.toFixed(2));
 }
 
 function degreesToCardinalDirection(degrees) {
