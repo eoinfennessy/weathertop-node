@@ -36,7 +36,7 @@ const userStore = {
     this.store.save();
   },
 
-  updatePassword(user, email) {
+  updatePassword(user, password) {
     user.password = password;
     this.store.save();
   },

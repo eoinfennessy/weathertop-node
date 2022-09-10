@@ -16,6 +16,7 @@ router.get('/account-settings', accounts.settings);
 router.post('/account-settings/update-name', accounts.updateName);
 router.post('/account-settings/update-email', accounts.updateEmail);
 router.post('/account-settings/delete-account', accounts.deleteAccount);
+router.post('/account-settings/update-password', accounts.updatePassword);
 router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
 
