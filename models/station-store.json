@@ -118,16 +118,6 @@
         "windSpeedTrend": "",
         "pressureTrend": ""
       }
-    },
-    {
-      "id": "63b48460-30fc-11ed-83d2-e9ec9df63435",
-      "userid": "5fda5770-30fc-11ed-83d2-e9ec9df63435",
-      "name": "Test",
-      "latitude": 0.001,
-      "longitude": 0.001,
-      "readings": [],
-      "latestReading": null,
-      "analytics": null
     }
   ]
 }

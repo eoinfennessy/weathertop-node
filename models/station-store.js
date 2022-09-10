@@ -17,7 +17,7 @@ const stationStore = {
     return this.store.findOneBy(this.collection, { id: id });
   },
 
-  getUserStations(userid, sortedByAttribute="") {
+  getUserStations(userid, sortedByAttribute = "") {
     const stations = this.store.findBy(this.collection, { userid: userid });
     if (sortedByAttribute === "name") {
       stations.sort((a, b) => a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1);
